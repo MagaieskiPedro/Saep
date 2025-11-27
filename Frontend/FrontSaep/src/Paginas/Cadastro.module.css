@@ -1,0 +1,54 @@
+.container section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 3.6%;
+}
+.container button{
+    border: none;
+    background-color: black;
+    color: white;
+    margin-bottom: 10px;
+    width: 458px;
+    height: 35px;
+}
+.container button:hover{
+    background-color: white;
+    color: black;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+.container input{
+    border-radius: 0;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    width: 450px;
+    height: 30px;
+    text-indent: 10px;
+}
+
+.container select, option{
+    border-radius: 0;
+    border-style: solid;
+    border-color: black;
+    width: 457.5px;
+    height: 35px;
+    border-width: 3px;
+    margin-bottom: 10px;
+    text-indent: 10px;
+}
+.container form{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.container p{
+    font-size: smaller;
+    color: #DA3B01;
+}
+.container select, option{
+    background-color: white;
+}
