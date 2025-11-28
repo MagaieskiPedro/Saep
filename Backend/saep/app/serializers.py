@@ -14,6 +14,7 @@ class EstoqueSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class EntradaSaidaSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = EntradaSaida
         fields = '__all__'
@@ -24,9 +25,6 @@ class LoginSerializer(TokenObtainPairSerializer):
 
     def validate(self, attrs):
         data = super().validate(attrs)
-        data['usuario'] = {
-            'categoria': self.user.categoria
-        }
         return data
 
 class CadastroSerializer(serializers.ModelSerializer):

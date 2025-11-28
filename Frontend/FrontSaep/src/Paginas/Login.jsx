@@ -47,7 +47,7 @@ export function Login(){
     }
 
     return(
-                <main className={estilo.container}>
+        <main className={estilo.container}>
             <section>
                 <h1>Faça login: </h1>
                 <form onSubmit={handleSubmit(enviarDadosFormulario)}>

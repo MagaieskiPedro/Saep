@@ -31,6 +31,7 @@ class Estoque(models.Model):
     preco = models.FloatField()
     
 class EntradaSaida(models.Model):
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
     responsavel = models.CharField(max_length=50,null=False, blank=False)
     ultimaAlteracao = models.DateTimeField(auto_now=True)
 

@@ -21,8 +21,6 @@ const schemaLogin = z.object({
     password2: z.string()
         .min(1,'Informe novamente sua senha')
         .max(15, 'Confirme uma senha de até 15 caracteres'),
-    categoria: z.string()
-        .min(1,"categoria faltando")
 })
 
 export function Cadastro(){
@@ -47,7 +45,6 @@ export function Cadastro(){
                   'username': data.username,
                   'password': data.password,
                   'password2': data.password2,
-                  'categoria': data.categoria
                             });
             const cadastro = response.data;
             // console.log(cadastro)
@@ -77,11 +74,6 @@ export function Cadastro(){
                     <input {...register('password2')} type="password" name="password2" placeholder="Confirme aqui sua senha"/>
                     {errors.password2 && <p className={estilo.erro}>{errors.password2.message}</p>}
                     
-                    <label htmlFor="categoria">Categoria de usuario: </label>
-                    <select {...register('categoria')} name="categoria">
-                        <option value="C">Comum</option>
-                        <option value="A">Administrador</option>
-                    </select>
                     <button type="submit">Cadastrar</button>
                 </form>
 
