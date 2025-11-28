@@ -1,6 +1,6 @@
 import estilo from "./Editar.module.css"
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {data, useNavigate} from 'react-router-dom'
 import {useForm} from 'react-hook-form';
 
@@ -24,28 +24,42 @@ const schemaEstoque = z.object({
 })
 
 export function Editar(){
-    const [estoque,setEstoque] = useState([]);
-    const [responsavel, setResponsavel] = useState([]);
-
     const navigate = useNavigate();
     
     const access_token = localStorage.getItem('access_token');
+    const idEstoque = localStorage.getItem("id-estoque");
+    const responsavelId = localStorage.getItem("id-produto");
 
-        const{
+    const{
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
+        reset
     } = useForm({
-            resolver: zodResolver(schemaEstoque)
+        resolver: zodResolver(schemaEstoque)
     })
 
+    useEffect(() => {
+        if (idEstoque ) {
+            axios.get(`/estoque/${idEstoque }`)
+                .then(res => {
+                    reset({quantidade: res.data.quantidade,
+                        preco:res.data.preco,
+                        responsavel:""
+                    }); // 🔹 aqui acontece o autocomplete
+                    console.log(res.data) // terminar aqui
+                })
+                .catch(err => console.error("Erro ao carregar estoque:", err));
+            
+        }
+        
+    }, [idEstoque , reset]);
+
+
+
     const alterarEstoque = async (data) =>{
-
-        const id = localStorage.getItem("id-estoque")
-        const responsavelId = localStorage.getItem("id-produto")
-
         try{
-            const responseEstoque = await axios.patch(`${API_URL}/api/estoque/${id}/`, {
+            const responseEstoque = await axios.patch(`${API_URL}/api/estoque/${idEstoque }/`, {
                 'quantidade': data.quantidade,
                 'preco': data.preco,
             },{
@@ -90,7 +104,7 @@ export function Editar(){
                     <label htmlFor="quantidade">Quantidade: </label>
                     <input {...register('quantidade',{
                                     setValueAs: (quantidade) => Number(quantidade),
-                                })} type="number" name="quantidade" />
+                                })} type="number" name="quantidade"/>
                     {errors.quantidade && <p>{errors.quantidade.message}</p>}
  
 
