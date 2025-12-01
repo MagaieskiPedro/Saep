@@ -1,0 +1,37 @@
+CREATE TABLE auth_user (
+    id INT AUTO_INCREMENT PRIMARY KEY,               -- ID gerado automaticamente
+    password VARCHAR(128) NOT NULL,                   -- Senha hash
+    last_login TIMESTAMP NULL,                        -- Data e hora do último login
+    is_superuser BOOLEAN NOT NULL,                    -- Se é um superusuário
+    username VARCHAR(150) NOT NULL UNIQUE,            -- Nome de usuário único
+    first_name VARCHAR(30),                           -- Primeiro nome
+    last_name VARCHAR(150),                           -- Sobrenome
+    email VARCHAR(254),                               -- E-mail
+    is_staff BOOLEAN NOT NULL,                        -- Se o usuário tem acesso ao painel administrativo
+    is_active BOOLEAN NOT NULL,                       -- Se o usuário está ativo
+    date_joined TIMESTAMP NOT NULL,                   -- Data de criação do usuário
+    CONSTRAINT username_unique UNIQUE (username)     -- Garantia de que o username é único
+);
+
+CREATE TABLE auth_group (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(150) UNIQUE NOT NULL
+);
+
+
+CREATE TABLE auth_permission (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    content_type_id INT NOT NULL,
+    codename VARCHAR(100) NOT NULL,
+    CONSTRAINT unique_permission UNIQUE (content_type_id, codename)
+);
+
+
+INSERT INTO usuario (username, password, email, first_name, last_name, is_superuser, is_staff, is_active, date_joined)
+VALUES
+('usuario1', '$2y$12$KIXbnpXXKmjc9qJHjC5FLOib7dz3WQ3xeCwVlz1s4tTbx0JfjL.lG', 'usuario1@exemplo.com', 'Carlos', 'Silva', false, true, true, '2025-12-01 10:00:00'),
+('usuario2', '$2y$12$MQRuqVRsmrW73QpcBW4tR1IKzJhOmXa74b7gkq9lgOjlKaei.qDLa', 'usuario2@exemplo.com', 'Ana', 'Costa', false, false, true, '2025-12-02 11:15:00'),
+('usuario3', '$2y$12$2EKcoRiQFdN4Gj0QLrF/6i7yD.jX0O8OEKqdyk64s6ZT2Z4DWLv.m', 'usuario3@exemplo.com', 'Pedro', 'Oliveira', false, false, true, '2025-12-03 09:00:00'),
+('usuario4', '$2y$12$V5llzsf4Pp0vIf3aQjqcpYYGE1gFiYLVhR3xO.xD.TtYNpeoGRw5C', 'usuario4@exemplo.com', 'Maria', 'Pereira', false, true, true, '2025-12-04 14:30:00'),
+('usuario5', '$2y$12$gh9ioh.ZVuTkAn.Dv9tnmQEdnDsqFSaaPSHlTT8Wdoa3YBoak8WlS', 'usuario5@exemplo.com', 'Lucas', 'Melo', false, false, true, '2025-12-05 13:20:00');

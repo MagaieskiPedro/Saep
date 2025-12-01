@@ -11,6 +11,11 @@
     height: 150px;
     position:sticky
 }
+.container section{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
 .container nav{
     padding-left: 246px;
 }
@@ -33,5 +38,12 @@
     font-size: 48px;
     color: black;
     font-family: "Honk", monospace;
+    text-align: center;
+}
+.container h2{
+    margin-left: 23px;
+    font-size: 28px;
+    color: black;
+    font-family: "Ewert", monospace;
     text-align: center;
 }

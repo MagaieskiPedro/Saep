@@ -1,0 +1,38 @@
+CREATE SCHEMA `db_saep` ;
+USE `db_saep` ;
+-- ===========================
+-- TABELA: Produto
+-- ===========================
+CREATE TABLE Produto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    modelo CHAR(50),
+    tipo CHAR(20),
+    armazenamento FLOAT,
+    largura INT,
+    altura INT,
+    tensao INT,
+    conectividade CHAR(50),
+    CHECK (tipo IN ('Notebook', 'Smartphone', 'TV Smart'))
+);
+
+-- ===========================
+-- TABELA: Estoque
+-- ===========================
+CREATE TABLE Estoque (
+    id INT PRIMARY KEY,
+    produto INT,
+    quantidade INT,
+    preco FLOAT,
+    FOREIGN KEY (produto) REFERENCES Produto(id)
+);
+
+-- ===========================
+-- TABELA: EntradaSaida
+-- ===========================
+CREATE TABLE EntradaSaida (
+    id INT PRIMARY KEY,
+    produto INT,
+    responsavel CHAR(50),
+    ultimaAlteracao DATETIME,
+    FOREIGN KEY (produto) REFERENCES Produto(id)
+);

@@ -39,6 +39,7 @@ export function Login(){
             const {access, refresh, usuario } = response.data;
             localStorage.setItem('access_token', access);
             localStorage.setItem('refresh_token', refresh);
+            localStorage.setItem("user",data.username)
             navigate('/')
         }catch(error){
             console.error('erro no login', error);
