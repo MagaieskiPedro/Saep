@@ -45,6 +45,18 @@
     background-color: white;
     color: black;
 }
+.consultar{
+    border: none;
+    background-color: teal;
+    color: white;
+    margin: 50%;
+}
+.consultar:hover{
+    border: 1px solid;
+    border-color: teal;
+    background-color: white;
+    color: teal;
+}
 .editar{
     border: none;
     background-color: black;

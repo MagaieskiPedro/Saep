@@ -21,17 +21,12 @@
     gap: 90px;
     
 }
-.container li{
+.container a{
     font-size:32px;
     text-decoration: none ;
     color: #000000; 
-}.container li:hover{
+}.container a:hover{
     color:#FF8A62;   
-}
-.container a:link{
-    color:#000000;
-    text-decoration: none;
-    
 }
 .container h1{
     margin-left: 46px;

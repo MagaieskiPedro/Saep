@@ -83,7 +83,7 @@ export function CriarProduto(){
             });
             console.log(responseEstoque)
 
-            navigate('/criar')
+            navigate('/gerenciar')
         }catch(error){
             console.error('erro no cadastro', error);
             alert("erro ao criar produto!")

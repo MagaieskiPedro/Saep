@@ -117,11 +117,11 @@ export function Gerenciar(){
                                             <button className={estilo.deletar} onClick={() =>deletarDado(produto.id)}><FontAwesomeIcon icon={faTrash}  size="sm"/></button>
                                         </td> 
                                         {/* //Aqui exibir o responsavel e datas de mundança de acordo com id do produto */}
-                                        {/* <td>
+                                        <td>
                                             <Link to={`/mudancas`} >
-                                                <button className={estilo.deletar} onClick={() =>deletarDado(produto.id)}><FontAwesomeIcon icon={faPenToSquare}  size="sm"/></button>
+                                                <button className={estilo.consultar} onClick={() =>editarDado(estoque.id,produto.id)}><FontAwesomeIcon icon={faPenToSquare}  size="sm"/></button>
                                             </Link>
-                                        </td>  */}
+                                        </td> 
                                     </tr>
                                 )
                             })}

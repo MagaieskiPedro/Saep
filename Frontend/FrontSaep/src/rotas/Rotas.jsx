@@ -6,6 +6,7 @@ import { Home } from '../Paginas/Home';
 import { CriarProduto } from '../Paginas/CriarProduto';
 import { Gerenciar } from '../Paginas/Gerenciar';
 import { Editar } from '../Paginas/Editar';
+import { Mudancas } from '../Paginas/Mudancas';
 
 export function Rotas(){
     return (
@@ -17,6 +18,7 @@ export function Rotas(){
                 <Route path='/criar' element={<CriarProduto />}></Route>
                 <Route path='/gerenciar' element={<Gerenciar />}></Route>
                 <Route path='/editar' element={<Editar/>}></Route>
+                <Route path='/mudancas' element={<Mudancas />}></Route>
             </Route>
         </Routes>
     )
